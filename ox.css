@@ -1,0 +1,145 @@
+ body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   align-items: center;
+ }
+ .imgshow{
+  width: 30px;
+  background-color: white;
+ display: none;
+ }
+ .imagelook{
+  width: 100px;
+  height: 100px;
+
+ }
+.container {
+  margin-top: 100px;
+  background-color: rgb(11, 11, 11);
+  box-shadow: 2px 3px 5px;
+  width: 400px;
+  height: 350px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "one two three"
+    "four five six"
+    "seven eight nine";
+  border-radius: 20px;
+}
+
+.ox {
+  border: none;
+  margin: 10px;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+ .ox:hover{
+    background-color: #0859fb;
+ }
+ .ox:active{
+    background-color: aqua;
+ }
+
+#ox1 {
+  grid-area: one;
+  background-color: red;
+}
+
+#ox2 {
+  grid-area: two;
+  background-color: green;
+}
+
+#ox3 {
+  grid-area: three;
+  background-color: blue;
+}
+
+#ox4 {
+  grid-area: four;
+  background-color: aqua;
+}
+
+#ox5 {
+  grid-area: five;
+  background-color: rgb(40, 29, 34);
+}
+
+#ox6 {
+  grid-area: six;
+  background-color: rgb(255, 98, 0);
+}
+
+#ox7 {
+  grid-area: seven;
+  background-color: rgb(255, 0, 174);
+}
+
+#ox8 {
+  grid-area: eight;
+  background-color: rgb(246, 211, 14);
+}
+
+#ox9 {
+  grid-area: nine;
+  background-color: rgb(5, 110, 148);
+}
+ .head{
+    position:  absolute;
+    visibility: hidden;
+   transform: translate(-50%,-50%)scale(0.1);
+    top: 50px;
+ }
+ .headlook{
+    visibility: visible;
+    transform: translate(-50%,-50%)scale(1);
+    
+ }
+
+
+ .popup {
+  position:  absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+   
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  height: 100px;
+  text-align: center;
+  margin-top: 30px;
+  border: none;
+  border-radius: 10px;
+}
+.popup-content button{
+ margin-top: 10px;
+ border: none;
+ background-color: #888;
+ color: white;
+ cursor: pointer;
+ width: 60px;
+ height: 30px;
+ border-radius: 5px;
+}
+.popup-content button:hover{
+  background-color: #0859fb;
+}
+.blur {
+  filter: blur(8px);
+}
