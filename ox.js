@@ -48,13 +48,19 @@ const urlParams = new URLSearchParams(window.location.search);
 const value = urlParams.get('value');
 let arrUser = [];
 let arrComputer = [];
+let seen=false;
 
 const oxButtons = document.querySelectorAll('.ox');
 
 oxButtons.forEach((button, index) => {
   button.addEventListener('click', () => {
-    check(index);
-    console.log(index);
+    if (!seen) {
+      check(index);
+      
+    }
+    else{
+      alert("The Game Is over");
+    }
   });
 });
 
@@ -74,6 +80,7 @@ function check(val) {
     ox(val);
     if (Win(arrUser)) {
       alert("You Won!");
+      seen=true;
       return;
     }
     
@@ -81,10 +88,14 @@ function check(val) {
     computerMove(isInRand);
     if (Win(arrComputer)) {
       alert("Computer Won!");
+      seen=true;
     }
     
   }
 }
+ 
+
+
 
 function ox(num) {
   const imgElement = document.createElement("img");
@@ -102,24 +113,21 @@ function computerMove(num) {
   imgElement.alt = value === "x" ? "oimage" : "ximage";
   oxButtons[num].appendChild(imgElement);
 }
-
 function Win(arr) {
   const winningCombinations = [
-    [0, 1, 2],
-    [0, 3, 6],
-    [0, 4, 8],
-    // Add other winning combinations as needed
-    // e.g., [1, 2, 3], [3, 4, 5], etc.
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
   ];
 
-  for (const combination of winningCombinations) {
-    const [a, b, c] = combination;
-    if (arr.includes(a) && arr.includes(b) && arr.includes(c)) {
-      return true; // Return true if there's a win
-    }
-  }
-  
-  return false; // Return false if no win
+  return winningCombinations.some(combination => 
+      combination.every(index => arr.includes(index))
+  );
 }
-
+ 
  
